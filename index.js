@@ -7,12 +7,8 @@ date = chalk.hex("#7197A2").bold(date)
 let numDate = moment().format("DDD")
 numDate = chalk.hex("#A2789D").bold(`${numDate}th`)
 
-// let sec = moment().format("ssssssss") // fix this
-// let sec = moment().format("ssss") // fix this
-// let sec = moment().seconds()
-let start = moment().startOf("day")
-// end.from(start, true)
-sec = moment().from(start, true)
+let midnight = moment().startOf("day")
+let sec = parseInt(moment().diff(midnight) / 1000)
 sec = chalk.hex("#7DAAA2").bold(sec)
 
 let isDaylight = "is not"
