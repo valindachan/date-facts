@@ -2,7 +2,7 @@ const moment = require("moment")
 const chalk = require("chalk")
 
 let date = moment().format("LLLL")
-let numDate = moment().format("DDD")
+let numDate = moment().format("DDD") // Another way is moment().dayOfYear()
 let midnight = moment().startOf("day")
 let sec = parseInt(moment().diff(midnight) / 1000)
 
