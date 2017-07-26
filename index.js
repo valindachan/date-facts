@@ -1,28 +1,22 @@
 const moment = require("moment")
 const chalk = require("chalk")
 
-let date = moment().format("LLLL")
-let numDate = moment().format("DDD") // Another way is moment().dayOfYear()
+let date = chalk.hex("#7197A2").bold(moment().format("LLLL"))
+let numDate = chalk.hex("#A2789D").bold(moment().format("DDD")) // Another way is moment().dayOfYear()
 let midnight = moment().startOf("day")
-let sec = parseInt(moment().diff(midnight) / 1000)
+let sec = chalk.hex("#7DAAA2").bold(parseInt(moment().diff(midnight) / 1000))
 
-let isDaylight = "is not"
-let isLeapYear = "is not"
+let isDaylight = chalk.hex("#8BA163").bold("is not")
+
+let isLeapYear = chalk.hex("##A24946").bold("is not")
 
 if (moment().isDST()) {
-  isDaylight = "is"
+  isDaylight = chalk.hex("#8BA163").bold("is")
 }
 
 if (moment().isLeapYear()) {
-  isLeapYear = "is"
+  isLeapYear = chalk.hex("##A24946").bold(isLeapYear)
 }
-
-// Set colors
-date = chalk.hex("#7197A2").bold(date)
-numDate = chalk.hex("#A2789D").bold(`${numDate}th`)
-sec = chalk.hex("#7DAAA2").bold(sec)
-isDaylight = chalk.hex("#8BA163").bold(isDaylight)
-isLeapYear = chalk.hex("##A24946").bold(isLeapYear)
 
 console.log(`It is ${date}.`)
 console.log(`It is ${numDate} day of the year.`)
